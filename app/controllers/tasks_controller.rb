@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   
   
   def show
-    @tasks = Task.find(params[:id])
+    @task = Task.find(params[:id])
   end
   
   
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     
     
-    if @task.update(message_params)
+    if @task.update(task_params)
       flash[:success] = 'Task は正常に更新されました'
       redirect_to @task
     else
@@ -63,6 +63,6 @@ class TasksController < ApplicationController
   
   # Strong Parameter
   def task_params
-    paeams.require(:task).permit(:content)
+    params.require(:task).permit(:content)
   end
 end
