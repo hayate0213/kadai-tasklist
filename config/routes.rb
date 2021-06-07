@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'toppages/index'
-  #root to: 'tasks#index'
-  root to: 'toppages#index'
+  root to: 'tasks#index'
    
    
   get 'users/index'
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
   
 
   get 'signup', to: 'users#new'
+  post 'signup', to: 'sessions#create'
   
   resources :users
   resources :tasks
